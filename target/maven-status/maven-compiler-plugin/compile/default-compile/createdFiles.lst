@@ -1,0 +1,5 @@
+com/desafio/api/model/Cliente.class
+com/desafio/api/controller/ClienteController.class
+com/desafio/api/repository/ClienteRepository.class
+com/desafio/api/service/ClienteService.class
+com/desafio/api/ApiApplication.class

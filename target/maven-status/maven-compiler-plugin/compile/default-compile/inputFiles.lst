@@ -1,0 +1,5 @@
+/home/ubuntu/desafio-api/src/main/java/com/desafio/api/repository/ClienteRepository.java
+/home/ubuntu/desafio-api/src/main/java/com/desafio/api/service/ClienteService.java
+/home/ubuntu/desafio-api/src/main/java/com/desafio/api/model/Cliente.java
+/home/ubuntu/desafio-api/src/main/java/com/desafio/api/ApiApplication.java
+/home/ubuntu/desafio-api/src/main/java/com/desafio/api/controller/ClienteController.java
