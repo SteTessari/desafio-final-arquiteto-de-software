@@ -47,7 +47,6 @@ Started ApiApplication in X.XXX seconds (JVM running for X.XXX)
 
 - **API Base URL**: http://localhost:8080/api/clientes
 - **Swagger UI**: http://localhost:8080/swagger-ui.html
-- **H2 Console** (banco de desenvolvimento): http://localhost:8080/h2-console
 
 ### 5. Testando a API
 

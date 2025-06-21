@@ -23,10 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-/**
- * Controlador REST para gerenciar operações relacionadas aos clientes.
- * Fornece endpoints para operações CRUD e consultas específicas.
- */
+
 @RestController
 @RequestMapping("/api/clientes")
 @Tag(name = "Clientes", description = "API para gerenciamento de clientes")
@@ -40,9 +37,7 @@ public class ClienteController {
         this.clienteService = clienteService;
     }
 
-    /**
-     * Lista todos os clientes.
-     */
+
     @GetMapping
     @Operation(summary = "Listar todos os clientes", description = "Retorna uma lista com todos os clientes cadastrados")
     @ApiResponses(value = {
@@ -54,9 +49,7 @@ public class ClienteController {
         return ResponseEntity.ok(clientes);
     }
 
-    /**
-     * Busca um cliente pelo ID.
-     */
+
     @GetMapping("/{id}")
     @Operation(summary = "Buscar cliente por ID", description = "Retorna um cliente específico baseado no ID fornecido")
     @ApiResponses(value = {
@@ -72,9 +65,7 @@ public class ClienteController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    /**
-     * Busca clientes pelo nome (busca parcial).
-     */
+
     @GetMapping("/nome/{nome}")
     @Operation(summary = "Buscar clientes por nome", description = "Retorna clientes cujo nome contém a string fornecida (busca case-insensitive)")
     @ApiResponses(value = {
@@ -88,9 +79,7 @@ public class ClienteController {
         return ResponseEntity.ok(clientes);
     }
 
-    /**
-     * Busca um cliente pelo email.
-     */
+
     @GetMapping("/email/{email}")
     @Operation(summary = "Buscar cliente por email", description = "Retorna um cliente específico baseado no email fornecido")
     @ApiResponses(value = {
@@ -106,9 +95,6 @@ public class ClienteController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    /**
-     * Conta o número total de clientes.
-     */
     @GetMapping("/contar")
     @Operation(summary = "Contar clientes", description = "Retorna o número total de clientes cadastrados")
     @ApiResponses(value = {
@@ -121,10 +107,6 @@ public class ClienteController {
         return ResponseEntity.ok(response);
     }
 
-    /**
-     * Busca clientes recentes.
-     * Possível ordenar informando o sort na paginação, por exemplo: ?sort=nome,desc
-     */
     @GetMapping("/recentes")
     @Operation(summary = "Buscar clientes recentes", description = "Retorna os clientes mais recentemente cadastrados")
     @ApiResponses(value = {
@@ -138,9 +120,6 @@ public class ClienteController {
         return ResponseEntity.ok(clientes);
     }
 
-    /**
-     * Cria um novo cliente.
-     */
     @PostMapping
     @Operation(summary = "Criar novo cliente", description = "Cria um novo cliente com os dados fornecidos")
     @ApiResponses(value = {
@@ -162,9 +141,6 @@ public class ClienteController {
         }
     }
 
-    /**
-     * Atualiza um cliente existente.
-     */
     @PutMapping("/{id}")
     @Operation(summary = "Atualizar cliente", description = "Atualiza os dados de um cliente existente")
     @ApiResponses(value = {
@@ -190,9 +166,6 @@ public class ClienteController {
         }
     }
 
-    /**
-     * Deleta um cliente.
-     */
     @DeleteMapping("/{id}")
     @Operation(summary = "Deletar cliente", description = "Remove um cliente do sistema")
     @ApiResponses(value = {
@@ -206,9 +179,7 @@ public class ClienteController {
         return deletado ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
 
-    /**
-     * Verifica se um cliente existe pelo ID.
-     */
+
     @GetMapping("/{id}/existe")
     @Operation(summary = "Verificar se cliente existe", description = "Verifica se um cliente existe baseado no ID")
     @ApiResponses(value = {

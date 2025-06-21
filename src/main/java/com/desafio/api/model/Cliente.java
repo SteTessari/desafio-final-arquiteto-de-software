@@ -4,17 +4,23 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-/**
- * Entidade Cliente que representa um cliente no sistema.
- * Esta classe é mapeada para a tabela 'clientes' no banco de dados.
- */
+
 @Entity
 @Table(name = "clientes")
-public class Cliente {
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class Cliente implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,91 +50,6 @@ public class Cliente {
     @Column(name = "data_atualizacao")
     private LocalDateTime dataAtualizacao = LocalDateTime.now();
 
-    // Construtor padrão
-    public Cliente() {
-    }
-
-    // Construtor com parâmetros principais
-    public Cliente(String nome, String email) {
-        this.nome = nome;
-        this.email = email;
-    }
-
-    // Construtor completo
-    public Cliente(String nome, String email, String telefone, String endereco) {
-        this.nome = nome;
-        this.email = email;
-        this.telefone = telefone;
-        this.endereco = endereco;
-    }
-
-    @PrePersist
-    protected void onCreate() {
-        dataCriacao = LocalDateTime.now();
-        dataAtualizacao = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        dataAtualizacao = LocalDateTime.now();
-    }
-
-    // Getters e Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public LocalDateTime getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public void setDataCriacao(LocalDateTime dataCriacao) {
-        this.dataCriacao = dataCriacao;
-    }
-
-    public LocalDateTime getDataAtualizacao() {
-        return dataAtualizacao;
-    }
-
-    public void setDataAtualizacao(LocalDateTime dataAtualizacao) {
-        this.dataAtualizacao = dataAtualizacao;
-    }
 
     @Override
     public boolean equals(Object o) {
