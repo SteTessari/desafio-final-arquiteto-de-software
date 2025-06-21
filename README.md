@@ -11,8 +11,7 @@ Esta é uma API REST desenvolvida em Java Spring Boot para o desafio final do bo
 - **Spring Data JPA**
 - **Spring Web**
 - **Spring Validation**
-- **PostgreSQL** (produção)
-- **H2 Database** (desenvolvimento/testes)
+- **PostgreSQL**
 - **SpringDoc OpenAPI 3** (Swagger)
 - **Maven** (gerenciamento de dependências)
 
@@ -78,14 +77,12 @@ A API fornece os seguintes endpoints para gerenciamento de clientes:
 
 - Java 17 ou superior
 - Maven 3.6 ou superior
-- PostgreSQL (para produção) ou H2 (desenvolvimento)
+- PostgreSQL
 
 ### Configuração do Banco de Dados
 
-#### Para Desenvolvimento (H2)
-A aplicação está configurada por padrão para usar o banco H2 em memória. Não é necessária configuração adicional.
 
-#### Para Produção (PostgreSQL)
+#### Para Produção e Desenvolvimento (PostgreSQL)
 1. Crie um banco de dados PostgreSQL
 2. Execute o script `src/main/resources/schema.sql` para criar as tabelas
 3. Atualize as configurações no arquivo `application.properties`:
@@ -112,7 +109,6 @@ A aplicação está configurada por padrão para usar o banco H2 em memória. N�
 4. **Acesse a aplicação**
    - API: http://localhost:8080/api/clientes
    - Swagger UI: http://localhost:8080/swagger-ui.html
-   - H2 Console (desenvolvimento): http://localhost:8080/h2-console
 
 ## Documentação da API (Swagger)
 
